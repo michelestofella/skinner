@@ -19,7 +19,7 @@ def deut_uptake(peptides, peptide_no, kint, pfact, t):
     peptides: pandas dataframe, format ['peptide','start_res','stop_res']
     peptide_no: number of the peptide to be analyzes, raw of the peptides dataframe
     kint: pandas dataframe, format ['residue','k_int']
-    pfact: pandas dataframe containing protection factors, format ['residue','ln(p)']
+    pfact: set of protection factors protection factors
     t: time interval over which deuterium uptake should be evaluated
     
     Ouput
@@ -33,7 +33,7 @@ def deut_uptake(peptides, peptide_no, kint, pfact, t):
     deut_partial = 0; namide = 0
     for i in range(start, stop):
         k_int = kint['k_int'][i]
-        p_fact = np.exp(pfact['ln(p)'][i])
+        p_fact = np.exp(pfact[i])
         k = 60*k_int/p_fact
         if k >= 0:
             namide += 1
@@ -44,6 +44,7 @@ def deut_uptake(peptides, peptide_no, kint, pfact, t):
  
 # %%
 
+time = np.logspace(-6,4,1000)
 for i in range(0,7):
     plt.scatter(exp_data[0], exp_data[i+1])
     plt.plot(time, deut_uptake(peptides, i, kint, pfact, time))
