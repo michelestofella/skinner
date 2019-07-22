@@ -44,15 +44,15 @@ def deut_uptake(peptides, peptide_no, kint, pfact, t):
  
 # %%
 
-time = np.logspace(-6,4,1000)
-for i in range(0,7):
-    plt.scatter(exp_data[0], exp_data[i+1])
-    plt.plot(time, deut_uptake(peptides, i, kint, pfact, time))
+# time = np.logspace(-6,4,1000)
+# for i in range(0,7):
+#     plt.scatter(exp_data[0], exp_data[i+1])
+#     plt.plot(time, deut_uptake(peptides, i, kint, pfact, time))
 
-plt.xlim(1e-6,1e4); plt.ylim(-0.1,1.1)
-plt.xlabel('Time (hours)',fontsize=18)
-plt.ylabel('Deuterium Uptake (D)', fontsize=18)
-plt.xscale('log')
-plt.grid(linestyle=':')
+# plt.xlim(1e-6,1e4); plt.ylim(-0.1,1.1)
+# plt.xlabel('Time (hours)',fontsize=18)
+# plt.ylabel('Deuterium Uptake (D)', fontsize=18)
+# plt.xscale('log')
+# plt.grid(linestyle=':')
 
 # %%
