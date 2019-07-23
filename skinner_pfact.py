@@ -15,8 +15,8 @@ from scipy.optimize import least_squares
 
 ''' Generate N random protection factor lists '''
 N = 5000                    # number of random lists to be generated
-pep_list = [1,2,3,4,5,6,7]  # peptides to be considered
-N_repeat = 100                # number of times the procedure should be repeated
+pep_list = [1,2,3,5]  # peptides to be considered
+N_repeat = 200                # number of times the procedure should be repeated
 
 p_factors = []; cost = []
 for i in range(0,N_repeat):
@@ -34,15 +34,14 @@ print('Done: 100 %')
 # %%
 
 ''' Save data in a .txt file '''
-filename = "out_data\pep1235_N5000_Nrep100.txt"
-''' Format: [p1, p2, ..., p15, cost]
-    Legend: p is protection factor of residue 1 '''
+filename = "out_data\pep1235_N5000_Nrep200.txt"
+''' Format: [p1, p2, ..., p15, cost] '''
 
 with open(filename,"w") as f:
     for i in range(0,len(p_factors)):
         for j in range(0,len(seq)):
-            f.write('%5.5f ' % p_factors[i][j])
-        f.write('%5.5f' % cost[i])
+            f.write('%5.10f ' % p_factors[i][j])
+        f.write('%5.10f' % cost[i])
         f.write("\n")
 f.close
 

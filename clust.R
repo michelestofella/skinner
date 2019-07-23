@@ -2,13 +2,16 @@ library(mclust)
 
 # MCLUST EXAMPLES APPROACH
 pep <- read.table("C:/Users/User/desktop/skinner/out_data/pepALL_N5000_Nrep100.txt")
-dat <- pep[,-1]
+
+pep <- rbind(pep1, pep2)
+subpep <- subset(pep, pep[,16]<5e-5)
+dat <- subpep[,2:15]
 
 BIC_pep <- mclustBIC(dat)
 plot(BIC_pep)
 summary(BIC)
 
-mod <- Mclust(dat, x=BIC_pep)
+mod <- Mclust(dat, modelNames='EII')
 summary(mod)
 
 write.table(mod$parameters$mean,file="C:/Users/User/desktop/skinner/out_data/clust_out/clust_means.txt")

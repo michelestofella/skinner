@@ -14,20 +14,21 @@ pfact = pfact_data[1]
 
 sequence = open('test_data\\test.seq','r')  
 if sequence.mode == 'r':
-    seq = sequence.read()    
+    seq = sequence.read()   
 
 peptides = pd.read_csv('test_data\\test.list', sep=" ", header=None)
 peptides.columns = ["peptide","start_res","stop_res","sequence"]
 
 kint = pd.read_csv('test_data\\test.kint', header=None, sep='\t')
 kint.columns = ["residue","k_int"]
-# last value has been changed (it has been multiplied *100)
+# last value has been multiplied *100 (original: 0.66...)
 
 exp_data = pd.read_csv('test_data\\test.Dexp', sep=" ", header=None)
+#
 
 # %%
 
-# """ This block is useful to visualize data """
+""" This block is useful to visualize data """
 # fig, (ax1,ax2) = plt.subplots(2, 1, figsize=[6, 7])
 # 
 # ax1.plot(pfact_data[0],pfact,'o-',color='black')

@@ -8,8 +8,6 @@
 
 from skinner_setup import *
 
-# %%
-
 def deut_uptake(peptides, peptide_no, kint, pfact, t):
     '''
     Evaluates the deuterium uptake of a certain peptide
@@ -24,7 +22,7 @@ def deut_uptake(peptides, peptide_no, kint, pfact, t):
     
     Ouput
     ----------------
-    deut_ptake: deuterium uptake calculated at time t
+    deut_uptake: deuterium uptake calculated at time t
     '''
     j = peptide_no
     start = peptides['start_res'][j]
@@ -45,6 +43,7 @@ def deut_uptake(peptides, peptide_no, kint, pfact, t):
 # %%
 
 # time = np.logspace(-6,4,1000)
+# plt.figure(figsize=(10,6))
 # for i in range(0,7):
 #     plt.scatter(exp_data[0], exp_data[i+1])
 #     plt.plot(time, deut_uptake(peptides, i, kint, pfact, time))
