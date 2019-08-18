@@ -4,7 +4,7 @@
 # 
 # =============================================================================
 
-from skinner_setup import *
+# from skinner_setup import *
 from skinner import deut_uptake
 
 def cost_fun(pfact, pep_list, peptides, kint, exp_data):

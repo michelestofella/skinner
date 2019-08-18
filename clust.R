@@ -1,10 +1,9 @@
 library(mclust)
 
 # MCLUST EXAMPLES APPROACH
-pep <- read.table("C:/Users/User/desktop/skinner/out_data/pepALL_N5000_Nrep100.txt")
+pep <- read.table("C:/Users/User/desktop/skinner/out_data/pep1234567_N5000_Nrep200.txt")
 
-pep <- rbind(pep1, pep2)
-subpep <- subset(pep, pep[,16]<5e-5)
+subpep <- subset(pep, pep[,16]<2e-5)
 dat <- subpep[,2:15]
 
 BIC_pep <- mclustBIC(dat)

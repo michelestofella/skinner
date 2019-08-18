@@ -17,6 +17,8 @@ plt.plot(pfact_data[0], pfact, 'o-', color='black', label='Real')
 for i in range(1,len(clust_data.iloc[0])):
     plt.plot(pfact_data[0][1:], clust_data['V'+str(i)], 'o-', label='Cluster'+str(i), alpha=0.5)
 plt.grid(linestyle=':')
-plt.legend()
+plt.ylim(0,20)
+plt.xlabel('Resiude',fontsize=18); plt.ylabel('ln(P)', fontsize=18)
+plt.legend(fontsize='large')
 
 # %%
